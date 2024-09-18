@@ -40,4 +40,19 @@ export class ClothesService {
 
     return this.http.put<ClotheResponse>(url, data)
   }
+
+  createClothe
+  (
+    name: string,
+    price: number,
+    description: string,
+    size: string,
+    color: string,
+    material: string
+  ) : Observable<ClotheResponse> {
+    const url = `${environment.apiUrl}product/clothe`;
+    const data = {name, price, description, size, color, material}
+
+    return this.http.post<ClotheResponse>(url, data)
+  }
 }
