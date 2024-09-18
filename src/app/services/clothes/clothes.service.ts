@@ -24,4 +24,20 @@ export class ClothesService {
     
     return this.http.delete<void>(url);
   }
+
+  updateClothe
+  (
+    clotheId: number,
+    name: string,
+    price: number,
+    description: string,
+    size: string,
+    color: string,
+    material: string
+  ) : Observable<ClotheResponse> {
+    const url = `${this.endpointClotheUrl}/${clotheId}`;
+    const data = {name, price, description, size, color, material}
+
+    return this.http.put<ClotheResponse>(url, data)
+  }
 }
