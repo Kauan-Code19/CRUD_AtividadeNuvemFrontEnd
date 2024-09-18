@@ -23,4 +23,18 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
+
+  // Função de edição de roupa
+  editClothe(clothe: ClotheResponse): void {
+    
+  }
+
+  // Função de exclusão de roupa
+  deleteClothe(clotheId: number): void {
+    this.clothesService.deleteClothe(clotheId).subscribe({
+      next: () => {
+        // Remove a roupa excluída da lista
+        this.clothes = this.clothes.filter(clothe => clothe.id !== clotheId);
+    }})
+  }
 }
