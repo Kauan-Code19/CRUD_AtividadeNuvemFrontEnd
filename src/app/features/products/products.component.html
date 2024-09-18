@@ -1,0 +1,49 @@
+<div class="container-fluid d-flex justify-content-center align-items-center background h-100">
+    <div class="container mt-5">
+      <h2 class="mb-4">Lista de Roupas</h2>
+
+      <div class="mb-3">
+        <a routerLink="/create-clothe" class="btn btn-success btn-sm">
+          <i class="bi bi-plus-lg"></i> Adicionar Nova Roupa
+        </a>
+      </div>
+
+      <div *ngIf="clothes.length > 0; else noClothes">
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>Nome</th>
+              <th>Preço</th>
+              <th>Descrição</th>
+              <th>Tamanho</th>
+              <th>Cor</th>
+              <th>Material</th>
+              <th>Ações</th> <!-- Nova coluna para ícones de ação -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let clothe of clothes">
+              <td>{{ clothe.name }}</td>
+              <td>{{ clothe.price | currency:'BRL' }}</td>
+              <td>{{ clothe.description }}</td>
+              <td>{{ clothe.size }}</td>
+              <td>{{ clothe.color }}</td>
+              <td>{{ clothe.material }}</td>
+              <td>
+                <button class="btn btn-warning btn-sm me-2" (click)="editClothe(clothe)">
+                    <i class="bi bi-pencil"></i> <!-- Ícone de lápis para editar -->
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteClothe(clothe.id)">
+                    <i class="bi bi-trash"></i> <!-- Ícone de lixeira para excluir -->
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <ng-template #noClothes>
+        <p class="alert alert-info">Nenhuma roupa disponível no momento.</p>
+      </ng-template>
+    </div>
+  </div>
