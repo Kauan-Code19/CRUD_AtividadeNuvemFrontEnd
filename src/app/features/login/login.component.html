@@ -1,0 +1,22 @@
+<div class="container-fluid d-flex justify-content-center align-items-center background h-100">
+    <div class="col-sm-12 col-md-10 col-lg-8 d-flex justify-content-center align-items-center p-2">
+        <div class="card col-sm-12 col-md-10 col-lg-8 rounded-3">
+            <div class="card-body p-4">
+                <h1 class="card-title p-2 display-6 text-left mb-4">Login</h1>
+                <form [formGroup]="inputsForm">
+                    <div class="form-floating mb-2 p-2">
+                        <input type="email" class="form-control p-2" id="input_email" placeholder="name@example.com" 
+                        formControlName="email">
+                        <label for="input_email">Email</label>
+                    </div>
+                    <div class="form-floating mb-3 p-2">
+                      <input type="password" class="form-control p-2" id="input_password" placeholder="Password" 
+                      formControlName="password">
+                      <label for="input_password">Password</label>
+                    </div>
+                    <button-send-data-administrator (click)="submit()" [disabled]="!inputsForm.valid"></button-send-data-administrator>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+    height: 70px
+}
+
+.background {
+    background-color: #f4f4f4
+}
+
+.card {
+    background-color: #ffffff;
+}
