@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ClotheResponse } from '../../interfaces/clothe-response';
 import { ClothesService } from '../../services/clothes/clothes.service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
 export class ProductsComponent implements OnInit {
   clothes: ClotheResponse[] = [];
 
-  constructor(private clothesService: ClothesService) {}
+  constructor(private clothesService: ClothesService, private router: Router) {}
 
   ngOnInit(): void {
     this.clothesService.getAllClothes().subscribe({
@@ -25,9 +25,8 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  // Função de edição de roupa
-  editClothe(clothe: ClotheResponse): void {
-    
+  editClothe(clotheId: number): void {
+    this.router.navigate(['edit-clothe', clotheId])
   }
 
   // Função de exclusão de roupa
